@@ -7,7 +7,7 @@ the examples below for the usage.
 ## Install
 
 ```bash
-go get github.com/koding/vagrantutil
+go get github.com/kafeg/vagrantutil
 ```
 
 ## Usage and Examples
