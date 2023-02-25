@@ -359,6 +359,11 @@ func (v *Vagrant) SSH(command string) (<-chan *CommandOutput, error) {
 	return v.vagrantCommand().start(args...)
 }
 
+func (v *Vagrant) SCP(src string, dst string) (<-chan *CommandOutput, error) {
+	args := []string{"scp", src, dst}
+	return v.vagrantCommand().start(args...)
+}
+
 // vagrantfile returns the Vagrantfile path
 func (v *Vagrant) vagrantfile() string {
 	return filepath.Join(v.VagrantfilePath, "Vagrantfile")
