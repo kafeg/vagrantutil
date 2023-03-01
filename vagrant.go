@@ -332,6 +332,12 @@ func (v *Vagrant) BoxList() ([]*Box, error) {
 	return boxes, nil
 }
 
+// Add new Vagrant Box package directly from packages file path
+func (v *Vagrant) BoxAddPackage(packagePath string) (<-chan *CommandOutput, error) {
+	args := append([]string{"box", "add", packagePath})
+	return v.vagrantCommand().start(args...)
+}
+
 // BoxAdd executes "vagrant box add" for the given box. The returned channel
 // contains the output stream. At the end of the output, the error is put into
 // the Error field if there is any.
