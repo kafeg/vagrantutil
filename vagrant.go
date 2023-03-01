@@ -332,7 +332,7 @@ func (v *Vagrant) BoxList() ([]*Box, error) {
 	return boxes, nil
 }
 
-// Add new Vagrant Box package directly from packages file path
+// Add new Vagrant Box package directly from packages file path with name of folder
 func (v *Vagrant) BoxAddPackage(boxName string, packagePath string) (<-chan *CommandOutput, error) {
 	args := append([]string{"box", "add", boxName, packagePath})
 	return v.vagrantCommand().start(args...)
