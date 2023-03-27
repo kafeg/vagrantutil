@@ -441,6 +441,8 @@ func toStatus(state string) (Status, error) {
 		return Saved, nil
 	case "poweroff":
 		return PowerOff, nil
+	case "not_running":
+		return PowerOff, nil
 	case "aborted":
 		return Aborted, nil
 	case "preparing":
