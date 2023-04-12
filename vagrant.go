@@ -246,6 +246,10 @@ func (v *Vagrant) Halt() (<-chan *CommandOutput, error) {
 	return v.vagrantCommand().start("halt")
 }
 
+func (v *Vagrant) HaltForce() (<-chan *CommandOutput, error) {
+	return v.vagrantCommand().start("halt", "--force")
+}
+
 // Destroy executes "vagrant destroy". The returned reader contains the output
 // stream. The client is responsible of calling the Close method of the
 // returned reader.
