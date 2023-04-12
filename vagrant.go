@@ -370,6 +370,36 @@ func (v *Vagrant) SCP(src string, dst string) (<-chan *CommandOutput, error) {
 	return v.vagrantCommand().start(args...)
 }
 
+func (v *Vagrant) SnapshotPush() (<-chan *CommandOutput, error) {
+	args := []string{"snapshot", "push"}
+	return v.vagrantCommand().start(args...)
+}
+
+func (v *Vagrant) SnapshotPop() (<-chan *CommandOutput, error) {
+	args := []string{"snapshot", "pop"}
+	return v.vagrantCommand().start(args...)
+}
+
+func (v *Vagrant) SnapshotSave(snapName string) (<-chan *CommandOutput, error) {
+	args := []string{"snapshot", "save", snapName}
+	return v.vagrantCommand().start(args...)
+}
+
+func (v *Vagrant) SnapshotRestore(snapName string) (<-chan *CommandOutput, error) {
+	args := []string{"snapshot", "restore", snapName}
+	return v.vagrantCommand().start(args...)
+}
+
+func (v *Vagrant) SnapshotList() (<-chan *CommandOutput, error) {
+	args := []string{"snapshot", "list"}
+	return v.vagrantCommand().start(args...)
+}
+
+func (v *Vagrant) SnapshotDelete(snapName string) (<-chan *CommandOutput, error) {
+	args := []string{"snapshot", "delete", snapName}
+	return v.vagrantCommand().start(args...)
+}
+
 // vagrantfile returns the Vagrantfile path
 func (v *Vagrant) vagrantfile() string {
 	return filepath.Join(v.VagrantfilePath, "Vagrantfile")
