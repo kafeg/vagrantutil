@@ -404,6 +404,10 @@ func (v *Vagrant) SnapshotDelete(snapName string) (<-chan *CommandOutput, error)
 	return v.vagrantCommand().start(args...)
 }
 
+func (v *Vagrant) CustomCmd(args []string) (<-chan *CommandOutput, error) {
+	return v.vagrantCommand().start(args...)
+}
+
 // vagrantfile returns the Vagrantfile path
 func (v *Vagrant) vagrantfile() string {
 	return filepath.Join(v.VagrantfilePath, "Vagrantfile")
